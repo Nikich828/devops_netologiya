@@ -128,5 +128,102 @@ services:
 
 ## Задача 1
 
-
 ![alt text](https://github.com/Nikich828/12_7hw/blob/main/1.jpeg)
+
+![alt text](https://github.com/Nikich828/12_7hw/blob/main/2.jpeg)
+
+![alt text](https://github.com/Nikich828/12_7hw/blob/main/3.jpeg)
+
+![alt text](https://github.com/Nikich828/12_7hw/blob/main/6.jpeg)
+
+![alt text](https://github.com/Nikich828/12_7hw/blob/main/4.jpeg)
+
+![alt text](https://github.com/Nikich828/12_7hw/blob/main/5.jpeg)
+
+https://hub.docker.com/repository/docker/nikich123/custom-nginx/general
+
+## Задача 2
+
+![alt text](https://github.com/Nikich828/12_7hw/blob/main/7.jpeg)
+
+
+## Задача 3
+
+![alt text](https://github.com/Nikich828/12_7hw/blob/main/8.jpeg)
+
+![alt text](https://github.com/Nikich828/12_7hw/blob/main/9.jpeg)
+
+Было:
+
+![alt text](https://github.com/Nikich828/12_7hw/blob/main/10.jpeg)
+
+Стало:
+
+![alt text](https://github.com/Nikich828/12_7hw/blob/main/11.jpeg)
+
+
+![alt text](https://github.com/Nikich828/12_7hw/blob/main/12.jpeg)
+
+![alt text](https://github.com/Nikich828/12_7hw/blob/main/14.jpeg)
+
+```bash
+Т.к контейнер теперь слушает 81 порт внутри, а хост продолжает маппить порт 8080 на порт 80 контейнера. Возникает нарушение маппинга, поэтому при попытке подключиться через curl http://127.0.0.1:8080 мы получаем ошибку, так как трафик приходит на порт 80 контейнера, который больше никем не слушается.
+```
+
+## Задача 4
+
+![alt text](https://github.com/Nikich828/12_7hw/blob/main/15.jpeg)
+
+
+## Задача 5
+
+![alt text](https://github.com/Nikich828/12_7hw/blob/main/16.jpeg)
+
+![alt text](https://github.com/Nikich828/12_7hw/blob/main/17.jpeg)
+
+```bash
+Был запущен файл compose.yaml, потому что docker compose при поиске конфигурационных файлов использует следующий порядок приоритета:
+Новый формат:
+compose.yaml 
+compose.yml
+Старый формат:
+docker-compose.yaml
+docker-compose.yml
+В нашем случае запустился compose.yaml, а docker-compose.yaml проигнорирован
+```
+```bash
+Для того чтобы были запущены оба файла, надо добавить в конфиг compose.yaml :
+include:
+  - docker-compose.yaml
+```
+
+![alt text](https://github.com/Nikich828/12_7hw/blob/main/18.jpeg)
+
+![alt text](https://github.com/Nikich828/12_7hw/blob/main/19.jpeg)
+
+![alt text](https://github.com/Nikich828/12_7hw/blob/main/20.jpeg)
+
+![alt text](https://github.com/Nikich828/12_7hw/blob/main/21.jpeg)
+
+![alt text](https://github.com/Nikich828/12_7hw/blob/main/22.jpeg)
+
+![alt text](https://github.com/Nikich828/12_7hw/blob/main/23.jpeg)
+
+![alt text](https://github.com/Nikich828/12_7hw/blob/main/24.jpeg)
+
+![alt text](https://github.com/Nikich828/12_7hw/blob/main/25.jpeg)
+
+![alt text](https://github.com/Nikich828/12_7hw/blob/main/26.jpeg)
+
+![alt text](https://github.com/Nikich828/12_7hw/blob/main/27.jpeg)
+
+![alt text](https://github.com/Nikich828/12_7hw/blob/main/28.jpeg)
+
+![alt text](https://github.com/Nikich828/12_7hw/blob/main/29.jpeg)
+
+![alt text](https://github.com/Nikich828/12_7hw/blob/main/30.jpeg)
+
+```bash
+т.к мы первой командой удалили файл и в compose.yml используется include, которая как раз и ссылается на удаленный файл, docker compose пытается заупстить проект, но его не сущесвует. Чтобы решить данну проблему надо либо восстановить файл, либо удалить include.
+```
+![alt text](https://github.com/Nikich828/12_7hw/blob/main/31.jpeg)
